@@ -52,6 +52,8 @@ export UNSERMAKE=%{_datadir}/unsermake/unsermake
 rm -rf $RPM_BUILD_ROOT
 %{__make} install DESTDIR=$RPM_BUILD_ROOT \
 	kde_htmldir=%{_kdedocdir}
+%{__sed} -i -e "s,Network,Network;X-Communication,g" \
+	$RPM_BUILD_ROOT%{_desktopdir}/kde/konversation.desktop
 
 %clean
 rm -rf $RPM_BUILD_ROOT
