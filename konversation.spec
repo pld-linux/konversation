@@ -1,6 +1,6 @@
 %define		_snap	040602
 Summary:	A user friendly IRC Client for KDE
-Summary(pl):	Przyjazny dla u¿ytkownika klient irc dla KDE
+Summary(pl):	Przyjazny dla u¿ytkownika klient IRC dla KDE
 Name:		konversation
 Version:	0.13
 Release:	0.%{_snap}.3
@@ -14,9 +14,9 @@ Source0:	kdesource.tar.gz
 %endif
 URL:		http://konversation.sourceforge.net/
 BuildRequires:	autoconf
-BuildRequires:	unsermake >= 040511
 BuildRequires:	automake
 BuildRequires:	kdelibs-devel
+BuildRequires:	unsermake >= 040511
 Requires:	kdelibs
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -28,7 +28,6 @@ A simple and easy to use IRC client for KDE with support for:
 - ignore list functionality
 - support for foreign language characters
 - configurable background colors and much more.
-
 
 %description -l pl
 Prosty i ³atwy w u¿yciu klient IRC dla KDE wyró¿niaj±cy siê m.in:
