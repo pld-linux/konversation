@@ -1,14 +1,14 @@
-%define		_snap	040602
+%define		_snap	050106
 Summary:	A user friendly IRC Client for KDE
 Summary(pl):	Przyjazny dla u¿ytkownika klient IRC dla KDE
 Name:		konversation
-Version:	0.13
-Release:	0.%{_snap}.3
+Version:	0.16
+Release:	0.%{_snap}.1
 License:	GPL
 Group:		Applications/Communications
 %if ! %{with cvs}
-Source0:	http://ep09.pld-linux.org/~djurban/kde/snap/%{name}-%{_snap}.tar.bz2
-# Source0-md5:	d4fe0d2929a1564c084ba3176dfccef6
+Source0:	%{name}-%{_snap}.tar.bz2
+# Source0-md5:	462c51a6f3c38a3c49642e47a6527131	
 %else
 Source0:	kdesource.tar.gz
 %endif
@@ -46,12 +46,16 @@ export UNSERMAKE=%{_datadir}/unsermake/unsermake
 
 %configure \
 	--with-qt-libraries=%{_libdir}
-%{__make}
+
+%{__make} -C konversation
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__make} install DESTDIR=$RPM_BUILD_ROOT \
-	kde_htmldir=%{_kdedocdir}
+%{__make}  -C konversation \
+	install DESTDIR=$RPM_BUILD_ROOT \
+	kde_htmldir=%{_kdedocdir} \
+	kde_libs_htmldir=%{_kdedocdir}
+
 %{__sed} -i -e "s,Network,Network;X-Communication,g" \
 	$RPM_BUILD_ROOT%{_desktopdir}/kde/konversation.desktop
 
@@ -62,6 +66,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/apps/konversation
+%{_datadir}/config.kcfg/konversation.kcfg
 %{_datadir}/apps/kconf_update/*
+%{_datadir}/services/konvirc*.protocol
 %{_desktopdir}/kde/konversation.desktop
-%{_iconsdir}/hicolor/*/*/konversation.png
+%{_iconsdir}/*/*/*/*.*
