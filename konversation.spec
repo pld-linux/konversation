@@ -3,7 +3,7 @@ Summary:	A user friendly IRC Client for KDE
 Summary(pl):	Przyjazny dla u¿ytkownika klient irc dla KDE
 Name:		konversation
 Version:	0.13
-Release:	0.%{_snap}.1
+Release:	0.%{_snap}.3
 License:	GPL
 Group:		Applications/Communications
 %if ! %{with cvs}
@@ -45,7 +45,8 @@ cp %{_datadir}/automake/config.sub admin
 export UNSERMAKE=%{_datadir}/unsermake/unsermake
 %{__make} -f Makefile.cvs
 
-%configure
+%configure \
+	--with-qt-libraries=%{_libdir}
 %{__make}
 
 %install
