@@ -1,12 +1,12 @@
 Summary:	A user friendly IRC Client for KDE
 Summary(pl):	Przyjazny dla u¿ytkownika klient IRC dla KDE
 Name:		konversation
-Version:	0.15.1
+Version:	0.18
 Release:	1
 License:	GPL
 Group:		Applications/Communications
 Source0:	http://download.berlios.de/konversation/%{name}-%{version}.tar.bz2
-# Source0-md5:	1e8643a62bbbb8ba21009395586caeb2
+# Source0-md5:	87eceaaad4223d17380cd1f8dfe8123f
 URL:		http://konversation.berlios.de/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -38,7 +38,7 @@ Prosty i ³atwy w u¿yciu klient IRC dla KDE wyró¿niaj±cy siê m.in:
 
 %build
 %{__sed} -i 's,KDE_DOCS.*,KDE_DOCS=%{name},' \
-	doc/Makefile.am translations/{da,et,it,pt,sv}/doc/Makefile.am
+	doc/Makefile.am doc/{da,et,it,nl,pt,sv}/Makefile.am
 cp -f /usr/share/automake/config.sub admin
 export UNSERMAKE=/usr/share/unsermake/unsermake
 %{__make} -f admin/Makefile.common cvs
@@ -68,4 +68,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kconf_update/*
 %{_datadir}/services/konvirc*.protocol
 %{_desktopdir}/kde/konversation.desktop
-%{_iconsdir}/crystalsvg/*/*/*
+%{_iconsdir}/*/*/*/*.png
+%{_iconsdir}/hicolor/scalable/apps/konversation.svgz
+%{_iconsdir}/crystalsvg/scalable/actions/*.svgz
