@@ -1,20 +1,20 @@
 Summary:	A user friendly IRC Client for KDE
 Summary(pl):	Przyjazny dla u¿ytkownika klient IRC dla KDE
 Name:		konversation
-Version:	0.18
+Version:	0.19
 Release:	1
 License:	GPL
 Group:		Applications/Communications
 Source0:	http://download.berlios.de/konversation/%{name}-%{version}.tar.bz2
-# Source0-md5:	87eceaaad4223d17380cd1f8dfe8123f
+# Source0-md5:	2194967b21276315a29258ccc557c429
 URL:		http://konversation.berlios.de/
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	gettext-devel
 BuildRequires:	kdelibs-devel >= 3.3.0
+BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRequires:	sed >= 4.0
-BuildRequires:	unsermake >= 040511
-Requires:	kdelibs
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -37,10 +37,7 @@ Prosty i ³atwy w u¿yciu klient IRC dla KDE wyró¿niaj±cy siê m.in:
 %setup -q
 
 %build
-%{__sed} -i 's,KDE_DOCS.*,KDE_DOCS=%{name},' \
-	doc/Makefile.am doc/{da,et,it,nl,pt,sv}/Makefile.am
 cp -f /usr/share/automake/config.sub admin
-export UNSERMAKE=/usr/share/unsermake/unsermake
 %{__make} -f admin/Makefile.common cvs
 
 %configure \
@@ -53,7 +50,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	kde_htmldir=%{_kdedocdir}
 
-%{__sed} -i -e "s,Network,Network;IRCClient," \
+%{__sed} -i -e "s,Network.*,Network;IRCClient;," \
 	$RPM_BUILD_ROOT%{_desktopdir}/kde/konversation.desktop
 
 %find_lang %{name} --with-kde
@@ -66,8 +63,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/apps/konversation
 %{_datadir}/apps/kconf_update/*
+%{_datadir}/config.kcfg/*
 %{_datadir}/services/konvirc*.protocol
 %{_desktopdir}/kde/konversation.desktop
-%{_iconsdir}/*/*/*/*.png
-%{_iconsdir}/hicolor/scalable/apps/konversation.svgz
-%{_iconsdir}/crystalsvg/scalable/actions/*.svgz
+%{_iconsdir}/hicolor/*/*/*
+%{_iconsdir}/crystalsvg/*/*/*
