@@ -7,7 +7,7 @@ License:	GPL
 Group:		Applications/Communications
 Source0:	http://download.berlios.de/konversation/%{name}-%{version}.tar.bz2
 # Source0-md5:	2194967b21276315a29258ccc557c429
-URL:		http://konversation.berlios.de/
+URL:		http://konversation.kde.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext-devel
