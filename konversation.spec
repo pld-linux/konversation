@@ -1,12 +1,12 @@
 Summary:	A user friendly IRC Client for KDE
 Summary(pl):	Przyjazny dla u¿ytkownika klient IRC dla KDE
 Name:		konversation
-Version:	1.0
+Version:	1.0.1
 Release:	1
 License:	GPL
 Group:		Applications/Communications
 Source0:	http://download.berlios.de/konversation/%{name}-%{version}.tar.bz2
-# Source0-md5:	824bd7d2ac6a4164625dbae03d6d481e
+# Source0-md5:	60c2c5f94d4a916055db09728304b19f
 URL:		http://konversation.kde.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
