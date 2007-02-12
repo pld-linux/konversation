@@ -1,6 +1,6 @@
 %define		_snap	050106
 Summary:	A user friendly IRC Client for KDE
-Summary(pl):	Przyjazny dla uøytkownika klient IRC dla KDE
+Summary(pl.UTF-8):   Przyjazny dla u≈ºytkownika klient IRC dla KDE
 Name:		konversation
 Version:	0.16
 Release:	0.%{_snap}.1
@@ -29,12 +29,12 @@ A simple and easy to use IRC client for KDE with support for:
 - support for foreign language characters
 - configurable background colors and much more.
 
-%description -l pl
-Prosty i ≥atwy w uøyciu klient IRC dla KDE wyrÛøniaj±cy siÍ m.in:
-- wsparciem dla przekre∂lania tekstu oraz rÛønych kodowaÒ
-- wchodzeniem na wiele kana≥Ûw na raz
-- obs≥ug± wiadomo∂ci away oraz teraz odtwarzanego utworu
-- i wieloma innymi moøliwo∂ciami
+%description -l pl.UTF-8
+Prosty i ≈Çatwy w u≈ºyciu klient IRC dla KDE wyr√≥≈ºniajƒÖcy siƒô m.in:
+- wsparciem dla przekre≈õlania tekstu oraz r√≥≈ºnych kodowa≈Ñ
+- wchodzeniem na wiele kana≈Ç√≥w na raz
+- obs≈ÇugƒÖ wiadomo≈õci away oraz teraz odtwarzanego utworu
+- i wieloma innymi mo≈ºliwo≈õciami
 
 %prep
 %setup -q -n %{name} %{?with_cvs:-D}
