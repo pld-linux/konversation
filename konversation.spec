@@ -1,5 +1,5 @@
 Summary:	A user friendly IRC Client for KDE
-Summary(pl.UTF-8):   Przyjazny dla użytkownika klient IRC dla KDE
+Summary(pl.UTF-8):	Przyjazny dla użytkownika klient IRC dla KDE
 Name:		konversation
 Version:	1.0.1
 Release:	1
