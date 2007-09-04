@@ -55,13 +55,14 @@ rm -rf $RPM_BUILD_ROOT
 %{__sed} -i -e "s,Network.*,Network;IRCClient;," \
 	$RPM_BUILD_ROOT%{_desktopdir}/kde/konversation.desktop
 
-%find_lang %{name} --with-kde
+%find_lang %{name} --with-kde --all-name
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
+%doc AUTHORS ChangeLog README
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/apps/konversation
 %{_datadir}/apps/kconf_update/*
