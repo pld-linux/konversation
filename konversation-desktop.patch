@@ -1,0 +1,19 @@
+--- konversation-1.0.1/konversation/src/konversation.desktop	2006-10-06 16:43:29.000000000 +0000
++++ konversation-1.0.1/konversation/src/konversation.desktop	2007-10-16 14:51:23.000000000 +0000
+@@ -22,6 +22,7 @@
+ GenericName[ka]=IRC საუბარი
+ GenericName[nl]=IRC-client
+ GenericName[pa]=IRC ਕਲਾਂਇਟ
++GenericName[pl]=Klient IRC
+ GenericName[pt]=Cliente de IRC
+ GenericName[pt_BR]=Cliente IRC
+ GenericName[sv]=IRC-klient
+@@ -33,7 +34,7 @@
+ Name[pa]=ਗੱਲਬਾਤ
+ Name[ta]=உரையாடல்
+ Name[xx]=xxKonversationxx
+-Categories=Qt;KDE;Network;X-SuSE-IRCClient;
++Categories=Qt;KDE;Network;InstantMessaging;
+ ServiceTypes=DCOP/InstantMessenger;DCOP/Unique
+ X-DCOP-ServiceName=konversation
+ X-DCOP-ServiceType=Unique
