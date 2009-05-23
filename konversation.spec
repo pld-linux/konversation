@@ -1,13 +1,13 @@
-%define		snap	942538
+%define		snap	alpha1
 Summary:	A user friendly IRC Client for KDE
 Summary(pl.UTF-8):	Przyjazny dla użytkownika klient IRC dla KDE
 Name:		konversation
-Version:	1.1.75
+Version:	1.2
 Release:	0.%{snap}.1
 License:	GPL
 Group:		Applications/Communications
-Source0:	http://team.pld-linux.org/~vip/%{name}-%{version}-rev%{snap}.tar.bz2
-# Source0-md5:	dc437d65107e31858e42b4c21f4850cf
+Source0:	http://download.berlios.de/konversation/%{name}-%{version}-%{snap}.tar.bz2
+# Source0-md5:	36043af54dff0c3a22e042f02db62c28
 URL:		http://konversation.kde.org/
 BuildRequires:	automoc4
 BuildRequires:	cmake
@@ -35,7 +35,7 @@ Prosty i łatwy w użyciu klient IRC dla KDE wyróżniający się m.in:
 - i wieloma innymi możliwościami
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}-%{snap}
 
 %build
 %cmake \
