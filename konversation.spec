@@ -1,18 +1,21 @@
+%define		snap	alpha6
 Summary:	A user friendly IRC Client for KDE
 Summary(pl.UTF-8):	Przyjazny dla użytkownika klient IRC dla KDE
 Name:		konversation
-Version:	1.1
-Release:	1
+Version:	1.2
+Release:	0.%{snap}.1
 License:	GPL
 Group:		Applications/Communications
-Source0:	http://download.berlios.de/konversation/%{name}-%{version}.tar.bz2
-# Source0-md5:	0d38a16747ab4f6549863de385cb551c
-Patch0:		%{name}-desktop.patch
+Source0:	http://download.berlios.de/konversation/%{name}-%{version}-%{snap}.tar.bz2
+# Source0-md5:	1720cc7d03cfb808c666f8df9006573e
 URL:		http://konversation.kde.org/
-BuildRequires:	autoconf
-BuildRequires:	automake
+BuildRequires:	Qt3Support-devel
+BuildRequires:	QtNetwork-devel
+BuildRequires:	automoc4
+BuildRequires:	cmake
 BuildRequires:	gettext-devel
-BuildRequires:	kdelibs-devel >= 3.3.0
+BuildRequires:	kde4-kdepimlibs-devel
+BuildRequires:	qt4-build
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRequires:	sed >= 4.0
@@ -35,39 +38,39 @@ Prosty i łatwy w użyciu klient IRC dla KDE wyróżniający się m.in:
 - i wieloma innymi możliwościami
 
 %prep
-%setup -q
-%patch0 -p1
+%setup -q -n %{name}-%{version}-%{snap}
 
 %build
-cp -f /usr/share/automake/config.sub admin
-%{__make} -f admin/Makefile.common cvs
+%cmake \
+	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
+	-DLIB_INSTALL_DIR=%{_libdir} \
+	-DCMAKE_BUILD_TYPE=%{!?debug:release}%{?debug:debug} \
+%if "%{_lib}" == "lib64"
+	-DLIB_SUFFIX=64 \
+%endif
+	.
 
-%configure \
-	--with-qt-libraries=%{_libdir}
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
-	kde_htmldir=%{_kdedocdir}
+        DESTDIR=$RPM_BUILD_ROOT \
+        kde_htmldir=%{_kdedocdir} \
+        kde_libs_htmldir=%{_kdedocdir}
 
-%{__sed} -i -e "s,Network.*,Network;IRCClient;," \
-	$RPM_BUILD_ROOT%{_desktopdir}/kde/konversation.desktop
-
-%find_lang %{name} --with-kde --all-name
+%find_lang %{name}  --with-kde --all-name
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog README
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/apps/konversation
 %{_datadir}/apps/kconf_update/*
-%{_datadir}/config.kcfg/*
-%{_datadir}/services/konvirc*.protocol
-%{_desktopdir}/kde/konversation.desktop
-%{_iconsdir}/hicolor/*/*/*
-%{_iconsdir}/crystalsvg/*/*/*
+%{_iconsdir}/*/*/*/*.*
+%{_desktopdir}/kde4/konversation.desktop
+%{_datadir}/kde4/services/konvirc.protocol
+%{_datadir}/kde4/services/konvirc6.protocol
