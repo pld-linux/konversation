@@ -9,10 +9,13 @@ Group:		Applications/Communications
 Source0:	http://download.berlios.de/konversation/%{name}-%{version}-%{snap}.tar.bz2
 # Source0-md5:	1720cc7d03cfb808c666f8df9006573e
 URL:		http://konversation.kde.org/
+BuildRequires:	Qt3Support-devel
+BuildRequires:	QtNetwork-devel
 BuildRequires:	automoc4
 BuildRequires:	cmake
 BuildRequires:	gettext-devel
 BuildRequires:	kde4-kdepimlibs-devel
+BuildRequires:	qt4-build
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRequires:	sed >= 4.0
