@@ -10,14 +10,18 @@ Source0:	ftp://ftp.kde.org/pub/kde/stable/konversation/%{version}/src/%{name}-%{
 URL:		http://konversation.kde.org/
 BuildRequires:	Qt3Support-devel
 BuildRequires:	QtNetwork-devel
+BuildRequires:	QtSvg-devel
 BuildRequires:	automoc4
 BuildRequires:	cmake
 BuildRequires:	gettext-devel
 BuildRequires:	kde4-kdepimlibs-devel
+BuildRequires:	qca-devel
 BuildRequires:	qt4-build
+BuildRequires:	qt4-qmake
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRequires:	sed >= 4.0
+BuildRequires:	xorg-lib-libXScrnSaver-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
