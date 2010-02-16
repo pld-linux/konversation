@@ -1,12 +1,12 @@
 Summary:	A user friendly IRC Client for KDE
 Summary(pl.UTF-8):	Przyjazny dla użytkownika klient IRC dla KDE
 Name:		konversation
-Version:	1.2.1
+Version:	1.2.3
 Release:	1
 License:	GPL
 Group:		Applications/Communications
 Source0:	ftp://ftp.kde.org/pub/kde/stable/konversation/%{version}/src/%{name}-%{version}.tar.bz2
-# Source0-md5:	7d3c5d7f0062e8441b27ff549aa0029e
+# Source0-md5:	3747187c392f46ee2337add514aec03a
 URL:		http://konversation.kde.org/
 BuildRequires:	Qt3Support-devel
 BuildRequires:	QtNetwork-devel
