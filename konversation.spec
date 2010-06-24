@@ -2,7 +2,7 @@ Summary:	A user friendly IRC Client for KDE
 Summary(pl.UTF-8):	Przyjazny dla użytkownika klient IRC dla KDE
 Name:		konversation
 Version:	1.3
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Communications
 Source0:	ftp://ftp.kde.org/pub/kde/stable/konversation/%{version}/src/%{name}-%{version}.tar.bz2
@@ -62,6 +62,9 @@ rm -rf $RPM_BUILD_ROOT
         DESTDIR=$RPM_BUILD_ROOT \
         kde_htmldir=%{_kdedocdir} \
         kde_libs_htmldir=%{_kdedocdir}
+
+# remove unsupported locales
+rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/sr@ijekavian{latin,}
 
 %find_lang %{name}  --with-kde --all-name
 
