@@ -1,12 +1,14 @@
+%define		_state		stable
+
 Summary:	A user friendly IRC Client for KDE
 Summary(pl.UTF-8):	Przyjazny dla użytkownika klient IRC dla KDE
 Name:		konversation
-Version:	1.3
-Release:	2
+Version:	1.3.1
+Release:	1
 License:	GPL
 Group:		Applications/Communications
-Source0:	ftp://ftp.kde.org/pub/kde/stable/konversation/%{version}/src/%{name}-%{version}.tar.bz2
-# Source0-md5:	bb306495466859e1383a1948f3fdb66d
+Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/konversation/%{version}/src/%{name}-%{version}.tar.bz2
+# Source0-md5:	f43ac55e4925e9578e87b13fde173671
 URL:		http://konversation.kde.org/
 BuildRequires:	Qt3Support-devel
 BuildRequires:	QtNetwork-devel
@@ -19,7 +21,7 @@ BuildRequires:	qca-devel
 BuildRequires:	qt4-build
 BuildRequires:	qt4-qmake
 BuildRequires:	rpm-pythonprov
-BuildRequires:	rpmbuild(macros) >= 1.129
+BuildRequires:	rpmbuild(macros) >= 1.600
 BuildRequires:	sed >= 4.0
 BuildRequires:	xorg-lib-libXScrnSaver-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -45,12 +47,6 @@ Prosty i łatwy w użyciu klient IRC dla KDE wyróżniający się m.in:
 
 %build
 %cmake \
-	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
-	-DLIB_INSTALL_DIR=%{_libdir} \
-	-DCMAKE_BUILD_TYPE=%{!?debug:release}%{?debug:debug} \
-%if "%{_lib}" == "lib64"
-	-DLIB_SUFFIX=64 \
-%endif
 	.
 
 %{__make}
