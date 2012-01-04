@@ -3,12 +3,12 @@
 Summary:	A user friendly IRC Client for KDE
 Summary(pl.UTF-8):	Przyjazny dla użytkownika klient IRC dla KDE
 Name:		konversation
-Version:	1.3.1
+Version:	1.4
 Release:	1
 License:	GPL
 Group:		Applications/Communications
-Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/konversation/%{version}/src/%{name}-%{version}.tar.bz2
-# Source0-md5:	f43ac55e4925e9578e87b13fde173671
+Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/konversation/%{version}/src/%{name}-%{version}.tar.xz
+# Source0-md5:	f67271f08b9da75dc9daff9ecbf3b365
 URL:		http://konversation.kde.org/
 BuildRequires:	Qt3Support-devel
 BuildRequires:	QtNetwork-devel
@@ -60,7 +60,7 @@ rm -rf $RPM_BUILD_ROOT
         kde_libs_htmldir=%{_kdedocdir}
 
 # remove unsupported locales
-rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/sr@ijekavian{latin,}
+%{__rm} -rf $RPM_BUILD_ROOT%{_datadir}/locale/sr@ijekavian{latin,}
 
 %find_lang %{name}  --with-kde --all-name
 
@@ -76,3 +76,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde4/konversation.desktop
 %{_datadir}/kde4/services/konvirc.protocol
 %{_datadir}/kde4/services/konvirc6.protocol
+%{_datadir}/kde4/services/konvircs.protocol
