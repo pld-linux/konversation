@@ -15,7 +15,7 @@ BuildRequires:	QtNetwork-devel
 BuildRequires:	QtSvg-devel
 BuildRequires:	automoc4
 BuildRequires:	cmake
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	kde4-kdepimlibs-devel
 BuildRequires:	qca-devel
 BuildRequires:	qt4-build
